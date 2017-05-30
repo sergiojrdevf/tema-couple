@@ -1,0 +1,1 @@
+const app=angular.module("App",[]);app.controller("appCtrl",["$scope",function(o){o.noiva="Natália",o.noivo="Sérgio",o.changeName=function(n){n.noiva&&(o.noiva=n.noiva),n.noivo&&(o.noivo=n.noivo)}}]);
