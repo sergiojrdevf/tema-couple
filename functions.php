@@ -1,5 +1,7 @@
 <?php 
 
+setlocale(LC_TIME, "pt_BR", "ptb");
+
 // Add Thumbnails
 add_theme_support('post-thumbnails');
 
@@ -194,6 +196,84 @@ function my_custom_menu_page(){ ?>
  */
 
 
+// RSVP
+add_action('init', 'sendRsvp');
+function sendRsvp() {
+	if(isset($_REQUEST['send_rsvp'])) {
+		// $nome = $_REQUEST['rsvp_name'];
+		$nome = 'Sérgio';
+		$guests = $_REQUEST['guests'];
+		// if(get_field('convidados', 272)) {
+		// 	$names = [];
+		//     while (has_sub_field('convidados', 272)):
+		//     	$names[] = get_sub_field('nome');
+		//   		$names[] = get_sub_field('e-mail');
+		//     endwhile;
+		//     foreach($names as $name) {
+		//     	echo utf8_encode(strtolower($name));
+		//     	// if(preg_match('/Sérgio/', strtolower($name))) {
+		//     	// 	echo 'tem';
+		//     	// }
+		//     }
+		// }
+	}
+}
+
+
+// // Create Role Usuário
+// add_action('init', 'createRole');
+// function createRole() {
+// 	remove_role('noivo');
+// 	if(!get_role('noivos')) {
+// 		$args = array(
+// 			'delete_others_pages'		=> true,
+// 			'delete_others_posts'		=> true,
+// 			'delete_pages'				=> true,
+// 			'delete_posts'				=> true,
+// 			'delete_private_pages'		=> true,
+// 			'delete_private_posts'		=> true,
+// 			'delete_published_pages'	=> true,
+// 			'delete_published_posts'	=> true,
+// 			'edit_others_pages'			=> true,
+// 			'edit_others_posts'			=> true,
+// 			'edit_pages'				=> true,
+// 			'edit_posts'				=> true,
+// 			'edit_private_pages'		=> true,
+// 			'edit_private_posts'		=> true,
+// 			'edit_published_pages'		=> true,
+// 			'edit_published_posts'		=> true,
+// 			'manage_categories'			=> true,
+// 			'manage_links'				=> true,
+// 			'moderate_comments'			=> true,
+// 			'publish_pages'				=> true,
+// 			'publish_posts'				=> true,
+// 			'read'						=> true,
+// 			'read_private_pages'		=> true,
+// 			'read_private_posts'		=> true,
+// 			'upload_files'				=> true,
+// 			'edit_themes' 				=> false, 
+// 			'install_plugins' 			=> false, 
+// 			'update_plugin' 			=> false, 
+// 			'update_core' 				=> false,
+// 			'create_sites'        		=> false,
+// 			'delete_sites'        		=> false,
+// 			'manage_network'        	=> false,
+// 			'manage_sites'        		=> false,
+// 			'manage_network_users'      => false,
+// 			'manage_network_plugins'    => false,
+// 			'manage_network_themes'     => false,
+// 			'manage_network_options'    => false,
+// 		);
+// 		add_role(
+// 		    'noivos',
+// 		    __( 'Noivo(a)' ),
+// 		    $args
+// 		);
+// 		echo 'usuário criado!';
+// 	}
+// }
+
+
 add_action( 'admin_init', 'hide_editor' );
 function hide_editor() {
 	$post_id = $_GET['post'] ? $_GET['post'] : $_POST['post_ID'] ;
@@ -272,33 +352,6 @@ function woocommerce_support() {
 //      return $fields;
 // }
 
-
-$produtos = [
-'Aparelho de som',
-'Rádio-relógio',
-'Relógio de parede',
-'Telefone com secretária',
-'Televisor a cores',
-'DVD',
-'Abajures para sala e quarto',
-'Castiçais',
-'Cinzeiros',
-'Fruteiras',
-'Luminárias',
-'Tapetes',
-'Vaso de flores'
-];
-
-foreach($produtos as $produto) {
-	$args = array(
-		'post_title' => $produto,
-		'post_type' => 'product',
-		'post_status' => 'publish',
-		// 'tax_input' => array('hierarchical_tax' => array( 17 ))
-	);
-	// $post_id = wp_insert_post( $args );
-}
-// exit;
 
 
 // Sidebar

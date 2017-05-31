@@ -7,7 +7,11 @@
 		$page_id = get_page_by_path( 'Sobre o Casal' )->ID;
 		$imgnoiva = get_field('imagem_noiva', $page_id);
 		$imgnoivo = get_field('imagem_noivo', $page_id);
-		$imgcasal = get_field('imagem_casal', $page_id);
+		$imgcasal = get_field('imagem_do_casal', $page_id);
+		$sobre_noiva = get_field('sobre_a_noiva', $page_id);
+		$sobre_noivo = get_field('sobre_o_noivo', $page_id);
+		$historia = get_field('nossa_historia', $page_id);
+		$pedido = get_field('o_pedido', $page_id);
 
 		$page_id = get_page_by_path( 'Banner' )->ID;
 		$noiva = get_field('nome_noiva', $page_id);
@@ -30,15 +34,13 @@
 				<div class="sm-6-12  ">
 					<div class="couple-item">
 						<h2>Nossa História</h2>
-						<p class="font-montserrrat">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat porro vel ut, obcaecati repellendus dolorem possimus eveniet aperiam sint, distinctio quis provident asperiores velit nisi ratione maiores exercitationem inventore sunt.</p>
-						<p class="font-montserrrat">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit tempora molestias adipisci obcaecati necessitatibus, et, odit amet aliquid magni harum totam repellendus dolore quia, autem ab, laudantium dicta blanditiis perferendis!</p>
+						<?php echo $historia ?>
 					</div>
 				</div>
 				<div class="sm-6-12  ">
 					<div class="couple-item">
 						<h2>O pedido</h2>
-						<p class="font-montserrrat">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat deserunt accusantium ea, commodi, ut maiores dolores sint excepturi pariatur vel numquam voluptates veniam? Ipsam eius dolor magnam, maxime neque nesciunt?</p>
-						<p class="font-montserrrat">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero distinctio, a ab modi similique ullam, animi quam cumque fugiat consectetur ut odit totam, recusandae expedita corrupti! Nam animi, distinctio sint.</p>
+						<?php echo $pedido ?>
 					</div>
 				</div>
 			</div>
@@ -51,7 +53,9 @@
 							<img class="hidden" src="<?php echo $imgnoiva?>" alt="">
 						</div>
 						<p class="font-montserrrat font-dancing couple-name a-center space-title"><?php echo $noiva; ?></p>
-						<p class="font-montserrrat a-center max-width">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat porro vel ut, obcaecati repellendus dolorem possimus eveniet aperiam sint, distinctio quis provident asperiores velit nisi ratione maiores exercitationem inventore sunt.</p>
+						<div class="a-center">
+							<?php echo $sobre_noiva; ?>
+						</div>
 					</div>
 				</div>
 				<div class="sm-6-12 ">
@@ -60,7 +64,9 @@
 							<img class="hidden" src="<?php echo $imgnoivo?>" alt="">
 						</div>
 						<p class="font-montserrrat font-dancing couple-name a-center space-title"><?php echo $noivo ?></p>
-						<p class="font-montserrrat a-center max-width">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat porro vel ut, obcaecati repellendus dolorem possimus eveniet aperiam sint, distinctio quis provident asperiores velit nisi ratione maiores exercitationem inventore sunt.</p>
+						<div class="a-center">
+							<?php echo $sobre_noivo; ?>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -71,9 +77,8 @@
 			</div>
 			<div class="">
 				<p class="font-dancing couple-name a-center space-title"><?php echo $noiva; ?> & <?php echo $noivo ?></p>
-				<div class=" ">
-					<p class="font-montserrrat a-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat porro vel ut, obcaecati repellendus dolorem possimus eveniet aperiam sint, distinctio quis provident asperiores velit nisi ratione maiores exercitationem inventore sunt.</p>
-					<p class="font-montserrrat a-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione deserunt aliquid exercitationem, ab dolores quo at modi quis. Nesciunt nisi dolores et ad doloremque molestiae, provident necessitatibus minus tempora dolore.</p>
+				<div class="a-center">
+					<?php echo $historia ?>
 				</div>
 			</div>
 		</div>
@@ -90,65 +95,62 @@
 				<p class="font-dancing couple-name"><?php echo $noiva; ?> & <?php echo $noivo ?></p>
 			</div>
 			<div class="couple-item a-center  ">
-				<p class="font-montserrrat">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat deserunt accusantium ea, commodi, ut maiores dolores sint excepturi pariatur vel numquam voluptates veniam? Ipsam eius dolor magnam, maxime neque nesciunt?</p>
-				<p class="font-montserrrat">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero distinctio, a ab modi similique ullam, animi quam cumque fugiat consectetur ut odit totam, recusandae expedita corrupti! Nam animi, distinctio sint.</p>
+				<?php echo $historia ?>
 			</div>
 		</div>
 	</div>
 
 	<!-- Local -->
-	<section class="space-default local with-img ">
+	<section class="space-default hidden local with-img ">
+		<?php
+			$page_id = get_page_by_path( 'Eventos' )->ID;
+			
+		?>
 		<div class="container max-width-content ">
 			<div class="column">
-				<div class="sm-6-12">
-					<div class="local-item a-center">
-						<div class="local-img bg-cover" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/local/wedding.jpg')">
-							<img class="hidden" src="<?php echo get_template_directory_uri(); ?>/img/local/party.jpg">
-						</div>
-						<div class="local-content">
-							<h2 >Cerimônia</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-							<p class="local-featured open-sans">Sábado, 6 de janeiro de 2018</p>
-							<p class="local-featured open-sans">Av Alberto Byington, #178</p>
-						</div>
-					</div>
-				</div>
-				<div class="sm-6-12">
-					<div class="local-item a-center">
-						<div class="local-img bg-cover" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/local/party.jpg')">
-							<img class="hidden" src="<?php echo get_template_directory_uri(); ?>/img/local/party.jpg">
-						</div>
-						<div class="local-content">
-							<h2 >Festa</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-							<p class="local-featured open-sans">Sábado, 6 de janeiro de 2018</p>
-							<p class="local-featured open-sans">Av Alberto Byington, #178</p>
+			<?php while(has_sub_field('eventos', $page_id)): ?>
+					<div class="sm-6-12">
+						<div class="local-item a-center">
+							<?php if(get_sub_field('titulo') == 'Cerimônia') {?>
+								<div class="local-img bg-cover" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/local/wedding.jpg')">
+									<img class="hidden" src="<?php echo get_template_directory_uri(); ?>/img/local/party.jpg">
+								</div>
+							<?php } ?>
+							<?php if(get_sub_field('titulo') == 'Festa') {?>
+								<div class="local-img bg-cover" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/local/party.jpg')">
+									<img class="hidden" src="<?php echo get_template_directory_uri(); ?>/img/local/party.jpg">
+								</div>
+							<?php } ?>
+							<div class="local-content">
+								<h2 ><?php echo  get_sub_field('titulo'); ?></h2>
+								<p><?php echo  get_sub_field('descrição'); ?></p>
+								<?php $data = get_sub_field('data');?>
+								<p class="local-featured open-sans"><?php echo utf8_encode(strftime('%A, %d de %B de %Y', strtotime($data))); ?></p>
+								<p class="local-featured open-sans"><?php echo  get_sub_field('local'); ?></p>
+							</div>
 						</div>
 					</div>
-				</div>
+			<?php endwhile;	?>
 			</div>
 		</div>
 	</section>
-	<section class="hidden space-default local with-title">
+	<section class="hidde space-default local with-title">
 		<div class="container  max-widt-content">
 			<!-- <h2 class="font-dacing a-center mg-bottom">O Casamento</h2> -->
 			<div class="column">
+			<?php while(has_sub_field('eventos', $page_id)): ?>
 				<div class="sm-6-12 border-right">
 					<div class="local-item a-center">
-						<h2 >Cerimônia</h2>
-						<p>6 de janeiro de 2018, ás 20h</p>
-						<p>Av Alberto Byington, #178</p>
+						<h2><?php echo  get_sub_field('titulo'); ?></h2>
+						<?php $data = get_sub_field('data');?>
+						<p class="local-featured open-sans">
+							<?php echo utf8_encode(strftime('%A, %d de %B de %Y', strtotime($data))); ?>,
+							<?php echo 'ás '.get_sub_field('horario'); ?></p>
+						<p><?php echo  get_sub_field('local'); ?></p>
 					</div>
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7312.976294812386!2d-46.66058329394004!3d-23.58682003096726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59f1069d11d1%3A0xcb936109af9ce541!2sParque+Ibirapuera!5e0!3m2!1spt-BR!2sbr!4v1494531597526" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+					<iframe src="<?php echo get_sub_field('google_maps'); ?>" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
 				</div>
-				<div class="sm-6-12">
-					<div class="local-item a-center">
-						<h2 >Festa</h2>
-						<p class="local-featured open-sans">6 de janeiro de 2018, ás 23h</p>
-						<p class="local-featured open-sans">Av Alberto Byington, #178</p>
-					</div>
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.145903743023!2d-46.656441185020775!3d-23.563202767545324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.+Paulista%2C+S%C3%A3o+Paulo+-+SP!5e0!3m2!1spt-BR!2sbr!4v1494531673158"  height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
-				</div>
+			<?php endwhile;	?>
 			</div>
 		</div>
 	</section>
@@ -156,10 +158,11 @@
 		<div class="containe  max-width-content ">
 			<!-- <h2 class="a-center section-title">Eventos</h2> -->
 			<div class="column">
+			<?php while(has_sub_field('eventos', $page_id)): ?>
 				<div class="sm-6-12">
 					<div class="local-item a-center bordered">
-						<h2 class="font-dancin">Cerimônia</h2>
-
+						<h2 class="font-dancin"><?php echo  get_sub_field('titulo'); ?></h2>
+						<?php if(get_sub_field('titulo') == 'Cerimônia') {?>
 						<svg class="mg-20-bottom" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" width="50">
 							<path style="fill:#E5BC53;" d="M354.079,487.362c-87.078,0-157.921-70.843-157.921-157.921S267,171.521,354.079,171.521
 							S512,242.363,512,329.441S441.158,487.362,354.079,487.362z M354.079,204.912c-68.665,0-124.53,55.864-124.53,124.528
@@ -172,17 +175,9 @@
 							s7.315-11.612,30.737-28.161c26.804-18.938,38.502-31.496,38.502-52.246C325.239,41.461,309.896,24.638,286.737,24.638z"/>
 							<path style="fill:#C42C78;" d="M286.737,24.638c-13.195,0-24.691,7.728-30.737,19.162c0,19.899,0,98.82,0,98.82
 							s7.315-11.612,30.737-28.161c26.804-18.938,38.502-31.496,38.502-52.246C325.239,41.461,309.896,24.638,286.737,24.638z"/>
-							</svg>
-						<div class="local-details">
-							<p class="date"><i class="fa fa-clock-o" aria-hidden="true"></i> 06/01/2018, 20h00</p>
-							<p class="address"><i class="fa fa-map-marker" aria-hidden="true"></i> Av Paulista, #188, São Paulo/SP</p>
-							<!-- <a href="#" class="btn btn-theme mg-20-top">Ver local</a> -->
-						</div>
-					</div>
-				</div>
-				<div class="sm-6-12">
-					<div class="local-item a-center bordered">
-						<h2 class="font-dancin">Festa</h2>
+						</svg>
+						<?php } ?>
+						<?php if(get_sub_field('titulo') == 'Festa') {?>
 							<svg class="mg-20-bottom" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" width="50">
 								<rect x="186.268" y="8.348" style="fill:#F5F6F6;" width="139.453" height="122.669"/>
 								<rect x="256" y="8.348" style="fill:#E5E5E5;" width="69.732" height="122.669"/>
@@ -247,13 +242,18 @@
 								<rect y="382.787" style="fill:#C3C3C9;" width="512" height="33.391"/>
 								<rect x="162.159" y="470.261" style="fill:#7A7A7C;" width="187.67" height="33.391"/>
 							</svg>
+						<?php } ?>
 						<div class="local-details">
-							<p class="date"><i class="fa fa-clock-o" aria-hidden="true"></i> 06/01/2018, 23h00</p>
-							<p class="address"><i class="fa fa-map-marker" aria-hidden="true"></i> Av Paulista, #188, São Paulo/SP</p>
+						<?php $data = get_sub_field('data');?>
+						<p class="date"><i class="fa fa-clock-o" aria-hidden="true"></i>
+							<?php echo utf8_encode(strftime('%d/%m/%Y', strtotime($data))); ?>,
+							<?php echo get_sub_field('horario'); ?></p>
+							<p class="address"><i class="fa fa-map-marker" aria-hidden="true"></i> <?php echo  get_sub_field('local'); ?></p>
 							<!-- <a href="#" class="btn btn-theme mg-20-top">Ver local</a> -->
 						</div>
 					</div>
 				</div>
+			<?php endwhile;	?>
 			</div>
 		</div>
 	</section>
@@ -460,14 +460,14 @@
 	<div class="rsvp rsvp-default mg-bottom space-default ">
 		<div class="container ">
 			<h2 class="a-center">RSVP</h2>
-			<div class="form max-width">
+			<form class="form max-width" method="post">
 				<div class="input-group">
-					<label for="name" class="label">Digite seu nome</label>
-					<input type="text" class="input" id="name" name="name">
+					<label for="name" class="label">Digite seu nome ou e-mail</label>
+					<input type="text" class="input" id="rsvp_name" name="rsvp_name">
 				</div>
 				<div class="input-group">
 					<label for="email" class="label">Quantos convidados irá levar?</label>
-					<select class="input">
+					<select class="input" name="guests" id="guests">
 						<option>0</option>
 						<option>1</option>
 						<option>2</option>
@@ -477,9 +477,10 @@
 					</select>
 				</div>
 				<div class="a-center">
+					<input type="hidden" value="1" name="send_rsvp" id="send_rsvp">
 					<button class="btn btn-theme btn-pink btn-uppercase" type="submit">Confirmar Presença</button>
 				</div>
-			</div>
+			</form>
 		</div>
 	</div>
 	<div class="rsvp hidden space-default rsvp-pink">
